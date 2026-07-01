@@ -1,0 +1,25 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    match /reports/{imageId} {
+      // Allow reading images/videos publicly if needed for UI mapping
+      allow read: if true;
+      // Allow authenticated users to upload their own files
+      // Verify it's an image or video and under 50MB
+      allow create: if isAuthenticated() && 
+                       (request.resource.contentType.matches('image/.*') || request.resource.contentType.matches('video/.*')) &&
+                       request.resource.size < 50 * 1024 * 1024;
+      allow update, delete: if false; // Only allow initial creation, block modifications
+    }
+    
+    // Default DENY ALL for anything else
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

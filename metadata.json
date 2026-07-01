@@ -1,0 +1,8 @@
+{
+  "name": "CivicMind AI Architecture Blueprint",
+  "description": "A comprehensive software architecture and implementation blueprint for an AI-powered autonomous civic platform, generated for a hackathon.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
