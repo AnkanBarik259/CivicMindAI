@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-primary: #2563eb;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Leaflet Customizations */
+.custom-popup .leaflet-popup-content-wrapper {
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  border: 1px solid #e2e8f0;
+}
+.custom-popup .leaflet-popup-tip {
+  border: 1px solid #e2e8f0;
+  border-top: none;
+  border-left: none;
+}
+.custom-leaflet-icon {
+  filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+}
